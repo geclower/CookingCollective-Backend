@@ -9,12 +9,26 @@ class Home(APIView):
     def get(self,request):
         content = {'message': 'Welcome to the recipes api home route!'}
         return Response(content)
-    
+
+# get all recipes
 class RecipeList(generics.ListCreateAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
 
-class CatDetail(generics.RetrieveUpdateDestroyAPIView):
+# get a single recipe by id
+class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
     lookup_field = 'id'
+
+# get all recipes within a food category
+class RecipeByFoodCat(generics.ListCreateAPIView):
+    def get_queryset(self):
+        food_id = self.kwargs['food_id']
+        return Recipe.objects.filter(food_id=food_id)
+
+# get all recipes within a meal category
+class RecipeByMealCat(generics.ListCreateAPIView):
+    def get_queryset(self):
+        meal_id = self.kwargs['meal_id']
+        return Recipe.objects.filter(meal_id=meal_id)
