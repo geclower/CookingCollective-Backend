@@ -23,12 +23,14 @@ class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
 
 # get all recipes within a food category
 class RecipeByFoodCat(generics.ListCreateAPIView):
+    serializer_class = RecipeSerializer
     def get_queryset(self):
         food_id = self.kwargs['food_id']
-        return Recipe.objects.filter(food_id=food_id)
+        return Recipe.objects.filter(category_food=food_id)
 
 # get all recipes within a meal category
 class RecipeByMealCat(generics.ListCreateAPIView):
+    serializer_class = RecipeSerializer
     def get_queryset(self):
         meal_id = self.kwargs['meal_id']
-        return Recipe.objects.filter(meal_id=meal_id)
+        return Recipe.objects.filter(category_meal=meal_id)
