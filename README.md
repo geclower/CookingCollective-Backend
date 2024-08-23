@@ -47,7 +47,7 @@ GET localhost:3000/recipes/food/:food_id
 >![alt text](images/CC-ERD.png)
 
 
-## Tech Stack
+### Tech Stack
 
 - **Python**: Backend development language.
 - **Django**: Web framework for building APIs and web applications.
@@ -59,7 +59,6 @@ GET localhost:3000/recipes/food/:food_id
 - Add users and user authentication to allow for personalized recipe feeds.
 - Expand routes to allow for more specialized filter functions on the frontend.
 
-### Author
-- [Grace Clower](https://github.com/geclower)
+#### Thanks to <a href="https://www.themealdb.com/api.php">The MealDB</a> for the dummy data used!
 
-Frontend GitHub for <a href="https://github.com/geclower/CookingCollective-Frontend">Cooking Collective</a>
+##### Frontend GitHub for <a href="https://github.com/geclower/CookingCollective-Frontend">Cooking Collective</a>
